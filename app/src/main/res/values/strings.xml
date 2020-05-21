@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">YouBee</string>
+    <string name="log_in">Log in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="welcomeTxt">You and Bee \n Best Combination Ever</string>
+    <string name="honeyDescription">\tYou&amp;Bee Company started its activity back in 2012.
+        The main scope of it is to increase bees population and develop a healthy ecosystem.
+        WE have a huge experience in this domain and always happy to share our knowledge and help.
+        \n\tAfter a couple years of hard WORK we are ready to present to entire market place our success and products.
+    </string>
+    <string name="location">Contact Information \n\n\t Tel: 069-xxx-xxx \n\t Email: youbee@gmail.com \n\t Location: R.M. Studentilor Str.</string>
+    <string name="about_us">About Us</string>
+    <string name="edamamBaseUrl">https://api.edamam.com</string>
+    <string name="api_key">75da0e15b97bc087c67e6abfb3cf275f</string>
+    <string name="api_id">74ac0216</string>
+    <string name="q">honey</string>
+</resources>
