@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         logInButton.setOnClickListener {
             d("email", "${email.text}")
             d("password", "${pswd.text}")
-//                startActivity(Intent (this,IntroductionActivity::class.java))
-            startActivity(Intent(this, RecipeActivity::class.java))
+                startActivity(Intent (this,IntroductionActivity::class.java))
+//            startActivity(Intent(this, RecipeActivity::class.java))
         }
         setClickableSignIn()
     }

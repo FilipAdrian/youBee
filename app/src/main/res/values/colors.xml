@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FFEB3B</color>
     <color name="colorPrimaryDark">#C9B209</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorDrawerHeader">#FFD180</color>
     <color name="colorLightYellow">#FFEB3B</color>
     <color name="colorTextBlack">#20201C</color>
     <color name="colorBlackGray">#31303E</color>
