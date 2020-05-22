@@ -2,44 +2,47 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_margin="4dp">
+        android:layout_margin="4dp"
+        android:id="@+id/parent_layout">
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:layout_height="match_parent"
+            android:padding="4dp">
 
         <ImageView
                 android:id="@+id/image_view"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/youbee" />
 
         <TextView
                 android:id="@+id/text_view_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/image_view"
-                android:textSize="18sp"
-                android:textColor="@color/colorBlackGray"
+                android:layout_below="@+id/image_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
                 android:text="Recipe Title"
-                android:textStyle="bold"
-                android:layout_toRightOf="@+id/image_view" />
+                android:textColor="@color/colorBlackGray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         <TextView
                 android:id="@+id/text_view_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text_view_1"
-                android:layout_marginTop="1dp"
-                android:layout_toRightOf="@+id/image_view"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:text="Recipe Rating"
                 android:textColor="@color/colorBlackGray"
                 android:textSize="18sp"
-                android:textStyle="italic"
-                android:layout_toEndOf="@+id/image_view" />
+                android:textStyle="italic" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

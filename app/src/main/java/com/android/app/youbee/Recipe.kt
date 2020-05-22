@@ -6,4 +6,10 @@ data class Recipe(
     val yield: Float,
     val url: String,
     val ingredientLines: List<String>
-)
+) {
+    fun ingredientsToString(): String {
+        var str = ""
+        for (ing: String in ingredientLines) str += "$ing\n"
+        return str
+    }
+}

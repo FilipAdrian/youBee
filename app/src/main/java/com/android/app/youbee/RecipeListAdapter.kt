@@ -1,5 +1,7 @@
 package com.android.app.youbee
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.util.Log.d
 import android.view.LayoutInflater
@@ -7,18 +9,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_item.view.*
-import java.lang.Exception
 
-class RecipeListAdapter(private val productList: List<Recipe>) :
+class RecipeListAdapter(val context: Context, private val productList: List<Recipe>) :
     RecyclerView.Adapter<RecipeListAdapter.ListViewHolder>() {
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.image_view
         val title: TextView = itemView.text_view_1
         val rating: TextView = itemView.text_view_2
+        val parentLayout: CardView = itemView.parent_layout
 
     }
 
@@ -33,20 +36,32 @@ class RecipeListAdapter(private val productList: List<Recipe>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val currenItem = productList[position]
-        Picasso.get().load(currenItem.image)
-            .transform(CircleTransform(50f,0f))
+        val currentItem = productList[position]
+        Picasso.get().load(currentItem.image)
+            .transform(CircleTransform(150f, 0f))
             .fit().into(holder.imageView, object : Callback {
-            override fun onSuccess() {
-                Log.d("PICASSO", "success")
-            }
+                override fun onSuccess() {
+                    d("PICASSO", "success")
+                }
 
-            override fun onError(e: Exception?) {
-                e?.printStackTrace()
-                holder.imageView.setImageResource(R.drawable.youbee)
-            }
-        })
-        holder.title.text = currenItem.label
-        holder.rating.text = currenItem.yield.toString()
+                override fun onError(e: Exception?) {
+                    e?.printStackTrace()
+                    holder.imageView.setImageResource(R.mipmap.ic_no_connection)
+                }
+            })
+
+        holder.title.text = currentItem.label
+        holder.rating.text = currentItem.yield.toString()
+        holder.parentLayout.setOnClickListener {
+            d("OnClick On", currentItem.label)
+            val intent = Intent(context,RecipeGalleryActivity::class.java)
+            intent.putExtra("ingr",currentItem.ingredientsToString())
+            intent.putExtra("image",currentItem.image)
+            intent.putExtra("url",currentItem.url)
+            intent.putExtra("yield",currentItem.yield.toString())
+            intent.putExtra("label",currentItem.label)
+            context.startActivity(intent)
+        }
     }
+
 }

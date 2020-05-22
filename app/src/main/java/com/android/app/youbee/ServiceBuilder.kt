@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceBuilder {
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.edamam.com")
+        .baseUrl("https://api.edamam.com/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

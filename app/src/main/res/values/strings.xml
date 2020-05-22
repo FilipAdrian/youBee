@@ -15,4 +15,7 @@
     <string name="api_key">75da0e15b97bc087c67e6abfb3cf275f</string>
     <string name="api_id">74ac0216</string>
     <string name="q">honey</string>
+    <string name="yield">Yield: </string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="link">Link: </string>
 </resources>

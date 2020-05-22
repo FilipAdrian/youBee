@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface EdamamEndpoint {
 
-    @GET("/search?q=honey")
+    @GET("search?q=honey")
     fun getRecipes(
         @Query("app_key") key: String,
         @Query("app_id") id: String
