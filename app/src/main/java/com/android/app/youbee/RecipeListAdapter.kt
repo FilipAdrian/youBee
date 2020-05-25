@@ -2,7 +2,6 @@ package com.android.app.youbee
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +14,10 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_item.view.*
 
-class RecipeListAdapter(val context: Context, private val productList: List<Recipe>) :
+class RecipeListAdapter(private val context: Context, private val productList: List<Recipe>) :
     RecyclerView.Adapter<RecipeListAdapter.ListViewHolder>() {
+
+    private val TAG = "RecipeListAdapter"
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.image_view
         val title: TextView = itemView.text_view_1
@@ -41,7 +42,7 @@ class RecipeListAdapter(val context: Context, private val productList: List<Reci
             .transform(CircleTransform(150f, 0f))
             .fit().into(holder.imageView, object : Callback {
                 override fun onSuccess() {
-                    d("PICASSO", "success")
+                    d("TAG", "success")
                 }
 
                 override fun onError(e: Exception?) {
@@ -53,7 +54,6 @@ class RecipeListAdapter(val context: Context, private val productList: List<Reci
         holder.title.text = currentItem.label
         holder.rating.text = currentItem.yield.toString()
         holder.parentLayout.setOnClickListener {
-            d("OnClick On", currentItem.label)
             val intent = Intent(context,RecipeGalleryActivity::class.java)
             intent.putExtra("ingr",currentItem.ingredientsToString())
             intent.putExtra("image",currentItem.image)
@@ -61,6 +61,7 @@ class RecipeListAdapter(val context: Context, private val productList: List<Reci
             intent.putExtra("yield",currentItem.yield.toString())
             intent.putExtra("label",currentItem.label)
             context.startActivity(intent)
+
         }
     }
 

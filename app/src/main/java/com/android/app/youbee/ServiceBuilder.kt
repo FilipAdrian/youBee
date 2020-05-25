@@ -5,12 +5,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceBuilder {
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.edamam.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
 
-    fun<T> buildService(service: Class<T>): T{
+    fun<T> buildService(service: Class<T>, url: String): T{
+        val retrofit = Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
         return retrofit.create(service)
     }
 }

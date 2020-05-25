@@ -11,10 +11,6 @@
     </string>
     <string name="location">Contact Information \n\n\t Tel: 069-xxx-xxx \n\t Email: youbee@gmail.com \n\t Location: R.M. Studentilor Str.</string>
     <string name="about_us">About Us</string>
-    <string name="edamamBaseUrl">https://api.edamam.com</string>
-    <string name="api_key">75da0e15b97bc087c67e6abfb3cf275f</string>
-    <string name="api_id">74ac0216</string>
-    <string name="q">honey</string>
     <string name="yield">Yield: </string>
     <string name="ingredients">Ingredients:</string>
     <string name="link">Link: </string>

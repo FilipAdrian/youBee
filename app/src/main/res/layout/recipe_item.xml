@@ -16,7 +16,7 @@
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/youbee" />
+                android:src="@mipmap/ic_no_connection" />
 
         <TextView
                 android:id="@+id/text_view_1"
