@@ -18,6 +18,7 @@ class RecipeListAdapter(private val context: Context, private val productList: L
     RecyclerView.Adapter<RecipeListAdapter.ListViewHolder>() {
 
     private val TAG = "RecipeListAdapter"
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.image_view
         val title: TextView = itemView.text_view_1
@@ -54,12 +55,12 @@ class RecipeListAdapter(private val context: Context, private val productList: L
         holder.title.text = currentItem.label
         holder.rating.text = currentItem.yield.toString()
         holder.parentLayout.setOnClickListener {
-            val intent = Intent(context,RecipeGalleryActivity::class.java)
-            intent.putExtra("ingr",currentItem.ingredientsToString())
-            intent.putExtra("image",currentItem.image)
-            intent.putExtra("url",currentItem.url)
-            intent.putExtra("yield",currentItem.yield.toString())
-            intent.putExtra("label",currentItem.label)
+            val intent = Intent(context, RecipeGalleryActivity::class.java)
+            intent.putExtra("ingr", currentItem.ingredientsToString())
+            intent.putExtra("image", currentItem.image)
+            intent.putExtra("url", currentItem.url)
+            intent.putExtra("yield", currentItem.yield.toString())
+            intent.putExtra("label", currentItem.label)
             context.startActivity(intent)
 
         }

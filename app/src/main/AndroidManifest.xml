@@ -25,6 +25,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RecipeActivity" />
         <activity android:name=".RecipeGalleryActivity" />
+        <activity android:name=".CreateUserActivity" />
     </application>
 
 </manifest>

@@ -3,10 +3,10 @@ package com.android.app.youbee
 data class EdamamResponseModel(val hits: List<Hits>) {
     data class Hits(val recipe: Recipe)
 
-    fun getAllRecipes(): List<Recipe>{
+    fun getAllRecipes(): List<Recipe> {
         val recipes = ArrayList<Recipe>()
-        for (hit: Hits in hits){
-            recipes +=  hit.recipe
+        for (hit: Hits in hits) {
+            recipes += hit.recipe
         }
         return recipes
     }

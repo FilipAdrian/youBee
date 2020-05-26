@@ -7,7 +7,6 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.util.Log.d
-import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         spannableString.setSpan(object : ClickableSpan() {
             override fun onClick(widget: View) {
                 Toast.makeText(this@MainActivity, "Sign In", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@MainActivity, CreateUserActivity::class.java))
             }
         }, 0, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
@@ -44,48 +44,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun validateInput() {
-        if (!validateEmail() or !validatePassword()) {
+        if (!InputField.validateEmail(emailPlainTxt) or !InputField.validateNonEmpty(pswdPlainText)) {
             return
         }
-        emailPlainTxt.error = null
-        pswdPlainText.error = null
         val email = emailPlainTxt.editText!!.text.toString().trim()
+        InputField.clearTextInputLayout(arrayOf(emailPlainTxt, pswdPlainText))
         getUserByEmail(email)
 
     }
 
-    private fun validateEmail(): Boolean {
-
-        if (emailPlainTxt.editText != null) {
-            val email = emailPlainTxt.editText!!.text.trim()
-            if (email.isEmpty()) {
-                emailPlainTxt.error = "Field can't be empty"
-                return false
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailPlainTxt.error = "Email address is not valid"
-                return false
-            } else {
-                emailPlainTxt.error = null;
-                return true
-            }
-
-        }
-        return false
-    }
-
-    private fun validatePassword(): Boolean {
-        if (pswdPlainText.editText != null) {
-            val password = pswdPlainText.editText!!.text.trim()
-            if (password.isEmpty()) {
-                pswdPlainText.error = "Field can't be empty"
-                return false
-            } else {
-                pswdPlainText.error = null
-                return true
-            }
-        }
-        return false
-    }
 
     private fun getUserByEmail(email: String) {
         val request =

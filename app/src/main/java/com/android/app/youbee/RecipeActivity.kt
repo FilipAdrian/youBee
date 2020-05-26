@@ -15,7 +15,11 @@ import retrofit2.Response
 
 class RecipeActivity : Fragment() {
     private val TAG = "RecipeActivity"
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.recipe_list, container, false)
     }
 
@@ -35,13 +39,14 @@ class RecipeActivity : Fragment() {
     }
 
     private fun getDataFromApi() {
-        val request = ServiceBuilder.buildService(EdamamEndpoint::class.java, Constant.EDAMAM_BASE_URL)
+        val request =
+            ServiceBuilder.buildService(EdamamEndpoint::class.java, Constant.EDAMAM_BASE_URL)
         val call = request.getRecipes(Constant.EDAMAM_API_KEY, Constant.EDAMAM_API_ID)
         call.enqueue(object : Callback<EdamamResponseModel> {
             override fun onFailure(call: Call<EdamamResponseModel>, t: Throwable) {
                 Toast.makeText(this@RecipeActivity.context, "${t.message}", Toast.LENGTH_SHORT)
                     .show()
-                d(TAG,"${t.message}")
+                d(TAG, "${t.message}")
             }
 
             override fun onResponse(

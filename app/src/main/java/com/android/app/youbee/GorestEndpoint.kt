@@ -1,5 +1,6 @@
 package com.android.app.youbee
 
+import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -11,5 +12,5 @@ interface GorestEndpoint {
     ): Call<GorestResult>
 
     @POST("public-api/users")
-    fun createUser(@Body user: User, @Header("Authorization") token: String): Call<User>
+    fun createUser(@Body user: User, @Header("Authorization") token: String): Call<JsonElement>
 }
