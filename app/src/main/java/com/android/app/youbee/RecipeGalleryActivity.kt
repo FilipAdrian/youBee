@@ -17,31 +17,19 @@ class RecipeGalleryActivity : AppCompatActivity() {
 
     private fun getIncomingIntent() {
         d(TAG, "getIncomingIntent: check")
-        if (intent.hasExtra("url") &&
-            intent.hasExtra("image") &&
-            intent.hasExtra("label") &&
-            intent.hasExtra("yield") &&
-            intent.hasExtra("ingr")
+        if (intent.hasExtra("recipe")
         ) {
             d(TAG, "getIncomingIntent: found extras")
-            val url = intent.getStringExtra("url")
-            val image = intent.getStringExtra("image")
-            val label = intent.getStringExtra("label")
-            val ingr = intent.getStringExtra("ingr")
-            val yield = intent.getStringExtra("yield")
-            setCoontent(url, image, label, ingr, `yield`)
+            val recipe = intent.getParcelableExtra<Recipe>("recipe")
+            d(TAG, recipe.toString())
+
+            setContent(recipe)
         }
     }
 
-    private fun setCoontent(
-        url: String,
-        image: String,
-        label: String,
-        ingr: String,
-        yield: String
-    ) {
+    private fun setContent(recipe : Recipe) {
 
-        Picasso.get().load(image).transform(CircleTransform(150f, 0f)).fit()
+        Picasso.get().load(recipe.image).transform(CircleTransform(150f, 0f)).fit()
             .into(recipeImg, object : Callback {
                 override fun onSuccess() {
                     d(TAG, "image was download")
@@ -53,9 +41,9 @@ class RecipeGalleryActivity : AppCompatActivity() {
                 }
             })
 
-        recipeTitleTxt.text = label
-        yieldTxt.text = "Yield: " + `yield`
-        ingredientsTxt.text = ingr
-        linkTxt.text = "Link: " + url
+        recipeTitleTxt.text = recipe.label
+        yieldTxt.text = "Yield: " + recipe.yield
+        ingredientsTxt.text = recipe.ingredientsToString()
+        linkTxt.text = "Link: " + recipe.url
     }
 }

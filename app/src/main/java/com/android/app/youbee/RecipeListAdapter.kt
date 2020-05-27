@@ -43,7 +43,7 @@ class RecipeListAdapter(private val context: Context, private val productList: L
             .transform(CircleTransform(150f, 0f))
             .fit().into(holder.imageView, object : Callback {
                 override fun onSuccess() {
-                    d("TAG", "success")
+                    d(TAG, "success")
                 }
 
                 override fun onError(e: Exception?) {
@@ -56,11 +56,7 @@ class RecipeListAdapter(private val context: Context, private val productList: L
         holder.rating.text = currentItem.yield.toString()
         holder.parentLayout.setOnClickListener {
             val intent = Intent(context, RecipeGalleryActivity::class.java)
-            intent.putExtra("ingr", currentItem.ingredientsToString())
-            intent.putExtra("image", currentItem.image)
-            intent.putExtra("url", currentItem.url)
-            intent.putExtra("yield", currentItem.yield.toString())
-            intent.putExtra("label", currentItem.label)
+            intent.putExtra("recipe",currentItem)
             context.startActivity(intent)
 
         }
