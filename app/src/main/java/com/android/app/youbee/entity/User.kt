@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.entity
 
 import android.os.Parcel
 import android.os.Parcelable

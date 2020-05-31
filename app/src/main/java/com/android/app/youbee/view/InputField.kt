@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.view
 
 import android.util.Patterns
 import com.google.android.material.textfield.TextInputLayout

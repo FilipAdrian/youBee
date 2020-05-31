@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.repository
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

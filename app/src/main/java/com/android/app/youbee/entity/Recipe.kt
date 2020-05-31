@@ -1,9 +1,7 @@
-package com.android.app.youbee
+package com.android.app.youbee.entity
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.util.Log.d
-import java.util.ArrayList
 
 data class Recipe(
     val image: String,
@@ -17,7 +15,7 @@ data class Recipe(
         parcel.readString().toString(),
         parcel.readFloat(),
         parcel.readString().toString(),
-        parcel.readArrayList(String.javaClass.classLoader) as List<String>
+        parcel.readArrayList(String::class.java.classLoader) as List<String>
     ) {
     }
 

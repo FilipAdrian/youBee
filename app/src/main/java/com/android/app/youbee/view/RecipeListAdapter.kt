@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.view
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.app.youbee.R
+import com.android.app.youbee.entity.Recipe
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_item.view.*
@@ -30,7 +32,9 @@ class RecipeListAdapter(private val context: Context, private val productList: L
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.recipe_item, parent, false)
-        return ListViewHolder(itemView)
+        return ListViewHolder(
+            itemView
+        )
     }
 
     override fun getItemCount(): Int {

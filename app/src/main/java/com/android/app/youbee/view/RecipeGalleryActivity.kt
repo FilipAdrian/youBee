@@ -1,8 +1,10 @@
-package com.android.app.youbee
+package com.android.app.youbee.view
 
 import android.os.Bundle
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
+import com.android.app.youbee.R
+import com.android.app.youbee.entity.Recipe
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_gallery.*
@@ -29,7 +31,12 @@ class RecipeGalleryActivity : AppCompatActivity() {
 
     private fun setContent(recipe : Recipe) {
 
-        Picasso.get().load(recipe.image).transform(CircleTransform(150f, 0f)).fit()
+        Picasso.get().load(recipe.image).transform(
+            CircleTransform(
+                150f,
+                0f
+            )
+        ).fit()
             .into(recipeImg, object : Callback {
                 override fun onSuccess() {
                     d(TAG, "image was download")

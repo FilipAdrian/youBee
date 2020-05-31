@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,11 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IntroductionActivity"
+            android:name=".view.IntroductionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RecipeActivity" />
-        <activity android:name=".RecipeGalleryActivity" />
-        <activity android:name=".CreateUserActivity" />
+        <activity android:name=".view.RecipeActivity" />
+        <activity android:name=".view.RecipeGalleryActivity" />
+        <activity android:name=".view.CreateUserActivity" />
     </application>
 
 </manifest>

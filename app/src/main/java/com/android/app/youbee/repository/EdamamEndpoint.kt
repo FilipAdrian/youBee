@@ -1,5 +1,6 @@
-package com.android.app.youbee
+package com.android.app.youbee.repository
 
+import com.android.app.youbee.entity.EdamamResponseModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

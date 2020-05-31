@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.view
 
 import android.os.Bundle
 import android.util.Log.d
@@ -9,6 +9,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import com.android.app.youbee.R
+import com.android.app.youbee.entity.User
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_activity.*
 import kotlinx.android.synthetic.main.drawer_header.view.*
@@ -33,7 +35,9 @@ class IntroductionActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         toggle.syncState()
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(fragment_container.id, InfoFragment()).commit()
+                .replace(fragment_container.id,
+                    InfoFragment()
+                ).commit()
             nav_view.setCheckedItem(R.id.nav_info)
         }
     }
@@ -65,9 +69,13 @@ class IntroductionActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_info -> supportFragmentManager.beginTransaction()
-                .replace(fragment_container.id, InfoFragment()).commit()
+                .replace(fragment_container.id,
+                    InfoFragment()
+                ).commit()
             R.id.nav_kitchen -> supportFragmentManager.beginTransaction()
-                .replace(fragment_container.id, RecipeActivity()).commit()
+                .replace(fragment_container.id,
+                    RecipeActivity()
+                ).commit()
             else -> Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
         }
         drawer_activity.closeDrawer(GravityCompat.START)

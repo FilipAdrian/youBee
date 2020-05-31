@@ -1,4 +1,4 @@
-package com.android.app.youbee
+package com.android.app.youbee.view
 
 import android.graphics.*
 import com.squareup.picasso.Transformation
