@@ -6,6 +6,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log.d
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -54,18 +55,23 @@ class MainActivity : AppCompatActivity(), LogInView {
     }
 
     override fun checkUser(users: List<User>) {
+        d(TAG, "USER")
         if (users.isNotEmpty()) {
             val intent = Intent(this@MainActivity, IntroductionActivity::class.java)
             intent.putExtra("user", users[0])
             startActivity(intent)
         } else {
-            Toast.makeText(
-                this@MainActivity,
-                "Email or Password is not correct",
-                Toast.LENGTH_SHORT
-            )
-                .show()
+            displayMessage("Email or Password is not correct")
         }
+    }
+
+    override fun displayMessage(message: String) {
+        Toast.makeText(
+            this@MainActivity,
+            message,
+            Toast.LENGTH_SHORT
+        )
+            .show()
     }
 
     override fun onDestroy() {

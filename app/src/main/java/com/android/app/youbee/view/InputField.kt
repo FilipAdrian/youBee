@@ -27,12 +27,12 @@ class InputField {
         fun validateNonEmpty(plainText: TextInputLayout): Boolean {
             if (plainText.editText != null) {
                 val password = plainText.editText!!.text.trim()
-                if (password.isEmpty()) {
+                return if (password.isEmpty()) {
                     plainText.error = "Field can't be empty"
-                    return false
+                    false
                 } else {
                     plainText.error = null
-                    return true
+                    true
                 }
             }
             return false
